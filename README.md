@@ -44,7 +44,8 @@ Templete no.2
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/023c3d2a-477e-45d6-8238-37ce03bf6851" />
 
 Templete no.3
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e7e6e741-669c-4a6e-bbfa-cf362febd486" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/70412590-94c4-45fd-8cc5-6b928541dcff" />
+
 
 
 
