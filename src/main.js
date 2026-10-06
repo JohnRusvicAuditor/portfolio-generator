@@ -87,7 +87,7 @@ window.save = async (e, id) => {
 const mini = n => ({
   1: `<div style="margin:auto;text-align:center;font-family:Georgia"><div style="width:34px;height:34px;border-radius:50%;background:#bbb;margin:auto"></div><hr style="width:120px;border-color:#222"><small>NAME</small></div>`,
   2: `<div style="width:100%"><div style="height:50px;background:linear-gradient(135deg,#4f46e5,#06b6d4)"></div><div style="display:flex;gap:6px;padding:8px;background:#eef2ff;height:100px"><i style="flex:1;background:#fff;border-radius:8px"></i><i style="flex:1;background:#fff;border-radius:8px"></i></div></div>`,
-  3: `<div style="display:flex;width:100%;background:#111"><i style="width:35%;background:#ff5e5b"></i><b style="color:#ffd166;padding:10px;font-size:22px">ABOUT</b></div>`
+  3: `<div style="width:100%;background:#fff7e6;padding:14px;display:flex;gap:8px"><i style="flex:1;height:60px;background:#c7f9cc;border:3px solid #111;border-radius:8px"></i><i style="flex:1;height:60px;background:#ffd6e0;border:3px solid #111;border-radius:8px"></i></div>`
 })[n];
 
 async function templatesPage(id) {
@@ -120,13 +120,13 @@ const T = {
     ${p.experience?.length ? `<div class="c"><h3>Experience</h3>${lines(p.experience, e => `<p><b>${esc(e.role)}</b> @ ${esc(e.company)}<br><small>${esc(e.years)}</small><br>${esc(e.description)}</p>`)}</div>` : ""}
     ${lines(p.projects, e => `<div class="c"><h3>${esc(e.title)}</h3>${esc(e.description)}<br>${e.link ? lk({ url: e.link, label: "View project" }) : ""}</div>`)}
     ${p.links?.length ? `<div class="c"><h3>Links</h3>${p.links.map(lk).join("<br>")}</div>` : ""}</div></div>`,
-  3: p => `<div class="t3"><aside>${p.photo ? `<img src="${esc(p.photo)}">` : ""}<h1>${esc(p.full_name)}</h1><p>${[p.email, p.contact_number, p.address].filter(Boolean).map(esc).join("<br>")}</p>
-    <p>${(p.links || []).map(lk).join("<br>")}</p></aside><section>
-    ${p.about ? `<h3>Hello</h3><p>${esc(p.about)}</p>` : ""}
-    ${p.skills?.length ? `<h3>Skills</h3><p>${p.skills.map(s => `<span class="chip" style="background:#ff5e5b;color:#111">${esc(s)}</span>`).join("")}</p>` : ""}
-    ${p.projects?.length ? `<h3>Projects</h3>` + lines(p.projects, e => `<div class="it"><b>${esc(e.title)}</b><br>${esc(e.description)} ${e.link ? lk({ url: e.link, label: "↗" }) : ""}</div>`) : ""}
-    ${p.experience?.length ? `<h3>Work</h3>` + lines(p.experience, e => `<div class="it"><b>${esc(e.role)}</b> — ${esc(e.company)} (${esc(e.years)})<br>${esc(e.description)}</div>`) : ""}
-    ${p.education?.length ? `<h3>Study</h3>` + lines(p.education, e => `<div class="it"><b>${esc(e.school)}</b><br>${esc(e.degree)} (${esc(e.years)})</div>`) : ""}</section></div>`
+  3: p => `<div class="t3"><div class="top">${p.photo ? `<img src="${esc(p.photo)}">` : ""}<div><h1>${esc(p.full_name)}</h1><div>${contact(p)}</div></div></div><div class="grid">
+    ${p.about ? `<div class="b"><h3>About me</h3>${esc(p.about)}</div>` : ""}
+    ${p.skills?.length ? `<div class="b"><h3>Skills</h3>${p.skills.map(s => `<span class="tag">${esc(s)}</span>`).join("")}</div>` : ""}
+    ${p.education?.length ? `<div class="b"><h3>Education</h3>${lines(p.education, e => `<p><b>${esc(e.school)}</b><br>${esc(e.degree)} · ${esc(e.years)}</p>`)}</div>` : ""}
+    ${p.experience?.length ? `<div class="b"><h3>Experience</h3>${lines(p.experience, e => `<p><b>${esc(e.role)}</b> @ ${esc(e.company)} (${esc(e.years)})<br>${esc(e.description)}</p>`)}</div>` : ""}
+    ${lines(p.projects, e => `<div class="b"><h3>${esc(e.title)}</h3>${esc(e.description)}<br>${e.link ? lk({ url: e.link, label: "Open project ↗" }) : ""}</div>`)}
+    ${p.links?.length ? `<div class="b"><h3>Find me</h3>${p.links.map(lk).join("<br>")}</div>` : ""}</div></div>`
 };
 async function previewPage(id) {
   const p = await getOne(id);
