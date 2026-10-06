@@ -1,4 +1,4 @@
-# PortfolioGen – Online Portfolio Template Generator
+# PortfolioGenerator – Online Portfolio Template Generator
 
 ## Project Description
 A database-driven web app where users enter their information, save it to an online database, choose 1 of 3 templates (Simple, Modern, Creative), generate a portfolio, and edit or delete it.
@@ -10,7 +10,7 @@ HTML, CSS, JavaScript (Vite), Supabase JS client
 Supabase (PostgreSQL) — project: *Portfolio Generator*
 
 ## Hosting / Deployment
-Vercel — **Published URL:** https://your-project.vercel.app  <!-- replace -->
+Vercel — **Published URL:** https://portfolio-generator-auditor6.vercel.app
 
 ## Database Structure — table `portfolios`
 | Column | Type | Notes |
@@ -37,4 +37,14 @@ Vercel — **Published URL:** https://your-project.vercel.app  <!-- replace -->
 4. Deploy (redeploy after adding variables).
 
 ## Screenshots
-Add screenshots of each page and of the 3 templates here.
+Templete no.1
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d9d203f9-a0b8-471f-8431-5ac78ff0578d" />
+
+Templete no.2
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/023c3d2a-477e-45d6-8238-37ce03bf6851" />
+
+Templete no.3
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e7e6e741-669c-4a6e-bbfa-cf362febd486" />
+
+
+
